@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 docker push olafurij12/tictactoe
 
 testing="ssh vagrant@192.168.33.12 docker"
