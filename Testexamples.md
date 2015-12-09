@@ -129,70 +129,70 @@ Event player 1 wins
 
 	Given [Placed(0,0,X), Placed(1,0,X)]
 	When  [Place(2,0,X)]
-	Then  [ Player 1 WINS ]
+	Then  [ Placed(2,0,X), Player 1 WINS ]
 
 	Given [Placed(0,1,X), Placed(1,1,X)]
 	When  [Place(2,1,X)]
-	Then  [ Player 1 WINS ]
+	Then  [ Placed(2,1,X), Player 1 WINS ]
 
 	Given [Placed(0,2,X), Placed(1,2,X)]
 	When  [Place(2,2,X)]
-	Then  [ Player 1 WINS ]
+	Then  [ Placed(2,2,X), Player 1 WINS ]
 
 	Given [Placed(0,0,X), Placed(0,1,X)]
 	When  [Place(0,2,X)]
-	Then  [ Player 1 WINS ]
+	Then  [ Placed(0,2,X), Player 1 WINS ]
 
 	Given [Placed(1,1,X) Placed(1,0,X)]
 	When  [Place(1,2,X)]
-	Then  [ Player 1 WINS ]
+	Then  [ Placed(1,2,X), Player 1 WINS ]
 
 	Given [Placed(2,0,X), Placed(2,1,X)]
 	When  [Place(2,2,X)]
-	Then  [ Player 1 WINS ]
+	Then  [ Placed(2,2,X), Player 1 WINS ]
 
 	Given [Placed(0,0,X), Placed(1,1,X)]
 	When  [Place(2,2,X)]
-	Then  [ Player 1 WINS ]
+	Then  [ Placed(2,2,X), Player 1 WINS ]
 
 	Given [Placed(2,0,X), Placed(1,1,X)]
 	When  [Place(0,2,X)]
-	Then  [ Player 1 WINS]
+	Then  [ Placed(0,2,X), Player 1 WINS]
 
 Event player 2 WINS
 {
 
 	Given [Placed(0,0,O), Placed(1,0,O)]
 	When  [Place(2,0,O)]
-	Then  [ Player 2 WINS ]
+	Then  [ Placed(2,0,O), Player 2 WINS ]
 
 	Given [Placed(0,1,O), Placed(1,1,O)]
 	When  [Place(2,1,O)]
-	Then  [ Player 2 WINS ]
+	Then  [ Placed(2,1,O), Player 2 WINS ]
 
 	Given [Placed(0,2,O), Placed(1,2,O)]
 	When  [Place(2,2,O)]
-	Then  [ Player 2 WINS ]
+	Then  [ Placed(2,2,O), Player 2 WINS ]
 
 	Given [Placed(0,0,O), Placed(0,1,O)]
 	When  [Place(0,2,O)]
-	Then  [ Player 2 WINS ]
+	Then  [ Placed(0,2,O), Player 2 WINS ]
 
 	Given [Placed(1,1,O) Placed(1,0,O)]
 	When  [Place(1,2,O)]
-	Then  [ Player 2 WINS ]
+	Then  [ Placed(1,2,O), Player 2 WINS ]
 
 	Given [Placed(2,0,O), Placed(2,1,O)]
 	When  [Place(2,2,O)]
-	Then  [ Player 2 WINS ]
+	Then  [ Placed(2,2,O), Player 2 WINS ]
 
 	Given [Placed(0,0,O), Placed(1,1,O)]
 	When  [Place(2,2,O)]
-	Then  [ Player 2 WINS ]
+	Then  [ Placed(2,2,O), Player 2 WINS ]
 
 	Given [Placed(2,0,O), Placed(1,1,O)]
 	When  [Place(0,2,O)]
-	Then  [ Player 2 WINS ]
+	Then  [ Placed(0,2,O), Player 2 WINS ]
 }
 
 Event DRAW
@@ -202,7 +202,7 @@ Event DRAW
 	             (0,1,X) (1,1,O) (2,1,O)
 	             (0,2,) (1,2,X) (2,2,X)]
 	When  [Place(0,2,O)]
-	Then  [ DRAW ]
+	Then  [Placed(0,2,O), DRAW ]
 }
 
 Event Elegal move 
