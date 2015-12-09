@@ -161,7 +161,7 @@ Event player 1 wins
 
 Event player 2 WINS
 {
-	
+
 	Given [Placed(0,0,O), Placed(1,0,O)]
 	When  [Place(2,0,O)]
 	Then  [ Player 2 WINS ]
@@ -192,8 +192,35 @@ Event player 2 WINS
 
 	Given [Placed(2,0,O), Placed(1,1,O)]
 	When  [Place(0,2,O)]
-	Then  [ Player 2 WINS]
+	Then  [ Player 2 WINS ]
 }
+
+Event DRAW
+{
+
+	Given [Placed(0,0,X) (1,0,O) (2,0,X)
+	             (0,1,X) (1,1,O) (2,1,O)
+	             (0,2,) (1,2,X) (2,2,X)]
+	When  [Place(0,2,O)]
+	Then  [ DRAW ]
+}
+
+Event Elegal move 
+{
+	Player 1 move
+
+	Given [Placed(0,0,X)]
+	When  [Place(1,0,X)]
+	Then  [ IT´S NOT YOUR MOVE ]
+
+	Player 2 move
+
+	Given [Placed(0,0,X), Placed(1,0,O)]
+	When  [Place(2,0,O)]
+	Then  [ IT´S NOT YOUR MOVE ]
+}
+
+
 
 
 
