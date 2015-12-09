@@ -2,6 +2,7 @@ Testform
 
 Event Create game
 {
+
 	Given []
 	When  [CreateGame]
 	Then  [Game Created]
@@ -9,6 +10,7 @@ Event Create game
 
 Event Player 1 places tic
 {
+
 	Given [(0,0,) (1,0,) (2,0,)
 	       (0,1,) (1,1,) (2,1,)
 	       (0,2,) (1,2,) (2,2,)]
@@ -66,6 +68,7 @@ Event Player 1 places tic
 
 Event player 2 places tic
 {
+
 	Given [(0,0,) (1,0,) (2,0,)
 	       (0,1,) (1,1,) (2,1,)
 	       (0,2,) (1,2,) (2,2,)]
@@ -158,6 +161,7 @@ Event player 1 wins
 
 Event player 2 WINS
 {
+	
 	Given [Placed(0,0,O), Placed(1,0,O)]
 	When  [Place(2,0,O)]
 	Then  [ Player 2 WINS ]
