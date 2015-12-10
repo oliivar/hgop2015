@@ -1,9 +1,21 @@
+var _ = require('lodash');
 module.exports = function tictactoeCommandHandler(events) {
+
   var gameState = {
     gameCreatedEvent : events[0],
-    tictactoeBoard: [[1,2,3],[4,5,6],[7,8,9]]
+    tictactoeBoard: [['','',''],['','',''],['','','']]
   };
 
+  var eventHandlers={
+    'PlayerMadeMove': function(event){
+      gameState.tictactoeBoard[event.x][event.y] = event.player;
+    }
+  };
+
+  _.each(events, function(event){
+    var eventHandler = eventHandlers[event.event];
+    if(eventHandler) eventHandler(event);
+  });
 
   var handlers = {
     "CreateGame": function (cmd) {
@@ -38,13 +50,15 @@ module.exports = function tictactoeCommandHandler(events) {
       }
     },
     "PlayerMove": function(cmd){
-      if(gameState.tictactoeBoard [cmd.number] !== 'X' || gameState.tictactoeBoard [cmd.number] !== 'O'){
+      if(gameState.tictactoeBoard [cmd.x][cmd.y] === '' || gameState.tictactoeBoard [cmd.x][cmd.y] === ''){
+        console.log(gameState.tictactoeBoard);
         return [{
           id: cmd.id,
           event: "PlayerMadeMove",
           userName: cmd.userName,
           nameOfGame: gameState.gameCreatedEvent.nameOfGame,
-          number: 1,
+          x: cmd.x,
+          y: cmd.y,
           player: cmd.player,
           timeStamp: cmd.timeStamp
         }]
@@ -55,7 +69,8 @@ module.exports = function tictactoeCommandHandler(events) {
           event: "Can't place there",
           userName: cmd.userName,
           nameOfGame: gameState.gameCreatedEvent.nameOfGame,
-          number: 1,
+          x: cmd.x,
+          y: cmd.y,
           player: cmd.player,
           timeStamp: cmd.timeStamp
         }]
