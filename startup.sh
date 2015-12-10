@@ -2,7 +2,7 @@
 
 sudo service docker start
 
-docker kill starter
+#docker kill starter
 
 docker rm -f starter
 

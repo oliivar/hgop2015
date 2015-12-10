@@ -7,15 +7,15 @@ describe('create game command', function(){
     given= [];
     when={
       id:"1234",
-      comm:"CreateGame",
-      userName : "Gulli",
-      name:"TheFirstGame",
+      command:"CreateGame",
+      userName : "Oli",
+      nameOfGame: "The Game",
       timeStamp: "2015.12.02T11:29:44"
     };
     then=[{
       id:"1234",
       event:"GameCreated",
-      userName: "Gulli",
+      userName: "Oli",
       timeStamp: "2015.12.02T11:29:44"
     }];
 
@@ -28,15 +28,15 @@ describe('create game command', function(){
     given= [];
     when={
       id:"12347",
-      comm:"CreateGame",
-      userName : "Halli",
-      name:"TheFirstGame",
+      command:"CreateGame",
+      userName : "Siggi",
+      name:"The Game",
       timeStamp: "2015.12.02T10:29:44"
     };
     then=[{
       id:"12347",
       event:"GameCreated",
-      userName: "Halli",
+      userName: "Siggi",
       timeStamp: "2015.12.02T10:29:44"
     }];
 

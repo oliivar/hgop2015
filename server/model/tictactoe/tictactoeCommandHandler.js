@@ -17,7 +17,7 @@ module.exports = function tictactoeCommandHandler(events) {
         if (gameCreatedEvent === undefined) {
           return [{
             id: cmd.id,
-            event: "GameDoesNotExist",
+            event: "NoGameInAction",
             userName: cmd.userName,
             timeStamp: cmd.timeStamp
           }];
@@ -35,7 +35,7 @@ module.exports = function tictactoeCommandHandler(events) {
 
   return {
     executeCommand: function (cmd) {
-      return handlers[cmd.comm](cmd);
+      return handlers[cmd.command](cmd);
     }
   };
 };

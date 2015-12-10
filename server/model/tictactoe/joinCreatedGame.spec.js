@@ -13,17 +13,17 @@ describe('join game command', function(){
     }];
     when={
       id:"12345",
-      comm:"JoinGame",
+      command:"JoinGame",
       userName : "Siggi",
-      name:"TheFirstGame",
-      timeStamp: "2015.12.02T11:30:50"
+      name:"The Game",
+      timeStamp: "2015.12.02T11:30:56"
     };
     then=[{
       id:"12345",
       event:"GameJoined",
       userName: "Siggi",
       otherUserName: "Oli",
-      timeStamp: "2015.12.02T11:30:50"
+      timeStamp: "2015.12.02T11:30:56"
     }];
 
     var actualEvents = tictactoeCommandHandler(given).executeCommand(when);
@@ -35,14 +35,14 @@ describe('join game command', function(){
     given= [];
     when={
       id:"12345",
-      comm:"JoinGame",
+      command:"JoinGame",
       userName : "Siggi",
-      name:"TheFirstGame",
+      name:"The Game",
       timeStamp: "2015.12.02T11:30:55"
     };
     then=[{
       id:"12345",
-      event:"GameDoesNotExist",
+      event:"NoGameInAction",
       userName: "Siggi",
       timeStamp: "2015.12.02T11:30:55"
     }];
