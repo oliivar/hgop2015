@@ -50,7 +50,7 @@ module.exports = function tictactoeCommandHandler(events) {
       }
     },
     "PlayerMove": function(cmd){
-      if(gameState.tictactoeBoard [cmd.x][cmd.y] === '' || gameState.tictactoeBoard [cmd.x][cmd.y] === ''){
+      if(gameState.tictactoeBoard [cmd.x][cmd.y] === ''){
         console.log(gameState.tictactoeBoard);
         return [{
           id: cmd.id,
@@ -64,6 +64,7 @@ module.exports = function tictactoeCommandHandler(events) {
         }]
       }
       else{
+        console.log(gameState.tictactoeBoard);
         return [{
           id: cmd.id,
           event: "Can't place there",
@@ -75,7 +76,7 @@ module.exports = function tictactoeCommandHandler(events) {
           timeStamp: cmd.timeStamp
         }]
       }
-    }
+    },
   };
 
   return {

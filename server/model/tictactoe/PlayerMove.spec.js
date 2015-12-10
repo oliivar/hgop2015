@@ -20,14 +20,14 @@ describe('Player makes move command', function(){
   });
 
   describe('when starting game', function(){
-    it('should move', function(){
+    it('should let player move', function(){
       when={
         id: "12345",
         command: "PlayerMove",
         userName: "Oli",
         nameOfGame: "The Game",
         x: 0,
-        y: 1,
+        y: 0,
         player: 'X',
         timeStamp: "2015.12.10T11:30:50"
       };
@@ -37,7 +37,7 @@ describe('Player makes move command', function(){
         userName: "Oli",
         nameOfGame: "The Game",
         x: 0,
-        y: 1,
+        y: 0,
         player: 'X',
         timeStamp: "2015.12.10T11:30:50"
       }];
@@ -55,7 +55,7 @@ describe('Player makes move command', function(){
         userName: "Oli",
         nameOfGame: "The Game",
         x: 0,
-        y: 1,
+        y: 0,
         player: 'X',
         timeStamp: "2015.12.10T11:30:50"
       });
@@ -66,7 +66,7 @@ describe('Player makes move command', function(){
         userName: "Oli",
         nameOfGame: "The Game",
         x: 0,
-        y: 1,
+        y: 0,
         player: 'X',
         timeStamp: "2015.12.10T11:30:50"
       };
@@ -76,7 +76,75 @@ describe('Player makes move command', function(){
         userName: "Oli",
         nameOfGame: "The Game",
         x: 0,
-        y: 1,
+        y: 0,
+        player: 'X',
+        timeStamp: "2015.12.10T11:30:50"
+      }];
+
+      var actualEvents = tictactoeCommandHandler(given).executeCommand(when);
+      JSON.stringify(actualEvents).should.be.exactly(JSON.stringify(then));
+    })
+  });
+
+  describe('player wins game', function(){
+    it('should let player win a game horizontal', function(){
+     given.push(
+       {event: "PlayerMadeMove", x: 0, y: 0, player: 'X'},
+       {event: "PlayerMadeMove", x: 1, y: 0, player: 'O'},
+       {event: "PlayerMadeMove", x: 0, y: 1, player: 'X'},
+       {event: "PlayerMadeMove", x: 1, y: 1, player: 'O'});
+
+      when={
+        id: "12345",
+        command: "PlayerMove",
+        userName: "Oli",
+        nameOfGame: "The Game",
+        x: 0,
+        y: 2,
+        player: 'X',
+        timeStamp: "2015.12.10T11:30:50"
+      };
+      then=[{
+        id: "12345",
+        event: "PlayerMadeMove",
+        userName: "Oli",
+        nameOfGame: "The Game",
+        x: 0,
+        y: 2,
+        player: 'X',
+        timeStamp: "2015.12.10T11:30:50"
+      }];
+
+      var actualEvents = tictactoeCommandHandler(given).executeCommand(when);
+      JSON.stringify(actualEvents).should.be.exactly(JSON.stringify(then));
+     })
+  });
+
+  describe('player wins game', function(){
+    it('should let player win a game vertical', function(){
+      given.push(
+        {event: "PlayerMadeMove", x: 0, y: 0, player: 'X'},
+        {event: "PlayerMadeMove", x: 0, y: 1, player: 'O'},
+        {event: "PlayerMadeMove", x: 1, y: 0, player: 'X'},
+        {event: "PlayerMadeMove", x: 1, y: 1, player: 'O'});
+
+      when={
+        id: "12345",
+        command: "PlayerMove",
+        userName: "Oli",
+        nameOfGame: "The Game",
+        x: 2,
+        y: 0,
+        player: 'X',
+        timeStamp: "2015.12.10T11:30:50"
+      };
+      then=[{
+        id: "12345",
+        event: "PlayerMadeMove",
+        userName: "Oli",
+        nameOfGame: "The Game",
+        x: 2,
+        y: 0,
         player: 'X',
         timeStamp: "2015.12.10T11:30:50"
       }];
