@@ -9,13 +9,14 @@ describe('join game command', function(){
       id:"1234",
       event:"GameCreated",
       userName: "Oli",
+      nameOfGame:"The Game",
       timeStamp: "2015.12.02T11:29:44"
     }];
     when={
       id:"12345",
       command:"JoinGame",
       userName : "Siggi",
-      name:"The Game",
+      nameOfGame:"The Game",
       timeStamp: "2015.12.02T11:30:56"
     };
     then=[{
@@ -23,6 +24,7 @@ describe('join game command', function(){
       event:"GameJoined",
       userName: "Siggi",
       otherUserName: "Oli",
+      nameOfGame: "The Game",
       timeStamp: "2015.12.02T11:30:56"
     }];
 
