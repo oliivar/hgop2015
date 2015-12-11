@@ -61,7 +61,7 @@ module.exports = function tictactoeCommandHandler(events) {
           y: cmd.y,
           player: cmd.player,
           timeStamp: cmd.timeStamp
-        }]
+        }];
       }
       else{
         console.log(gameState.tictactoeBoard);
@@ -74,9 +74,22 @@ module.exports = function tictactoeCommandHandler(events) {
           y: cmd.y,
           player: cmd.player,
           timeStamp: cmd.timeStamp
-        }]
+        }];
       }
     },
+    "IllegalMove": function(cmd) {
+      console.log(gameState.tictactoeBoard);
+      return [{
+        id: cmd.id,
+        event: "Wait it's not your turn",
+        userName: cmd.userName,
+        nameOfGame: gameState.gameCreatedEvent.nameOfGame,
+        x: cmd.x,
+        y: cmd.y,
+        player: cmd.player,
+        timeStamp: cmd.timeStamp
+      }];
+    }
   };
 
   return {
