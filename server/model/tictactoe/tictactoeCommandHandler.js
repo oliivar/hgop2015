@@ -18,11 +18,11 @@ module.exports = function tictactoeCommandHandler(events) {
   });
 
   var handlers = {
-    "CreateGame": function (cmd) {
+    "createGame": function (cmd) {
       {
         return [{
           id: cmd.id,
-          gameId: cmd.gameId,
+          gameID: cmd.gameID,
           event: "GameCreated",
           userName: cmd.userName,
           nameOfGame: cmd.nameOfGame,
@@ -42,6 +42,7 @@ module.exports = function tictactoeCommandHandler(events) {
         }
         return [{
           id: cmd.id,
+          gameID: cmd.gameID,
           event: "GameJoined",
           userName: cmd.userName,
           otherUserName: gameState.gameCreatedEvent.userName,
@@ -74,6 +75,7 @@ module.exports = function tictactoeCommandHandler(events) {
           x: cmd.x,
           y: cmd.y,
           player: cmd.player,
+          timeStamp: cmd.timeStamp
         }];
       }
     },
@@ -94,7 +96,16 @@ module.exports = function tictactoeCommandHandler(events) {
 
   return {
     executeCommand: function (cmd) {
-      return handlers[cmd.command](cmd);
+      var handler = handlers[cmd.command];
+      if(!handler){
+        throw new Error("No handler resolved for command " + JSON.stringify(cmd));
+      }
+      return handler(cmd);
     }
   };
+  /*return {
+    executeCommand: function (cmd) {
+      return handlers[cmd.command](cmd);
+    }
+  };*/
 };
