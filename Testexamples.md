@@ -4,7 +4,7 @@ Event Create game
 {
 
 	Given []
-	When  [CreateGame]
+	When  [createGame]
 	Then  [Game Created]
 }
 
