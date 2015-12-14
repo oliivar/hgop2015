@@ -2,8 +2,8 @@
 
 var should = require('should');
 var request = require('supertest');
-var acceptanceUrl = process.env.ACCEPTANCE_URL;
-
+//var acceptanceUrl = process.env.ACCEPTANCE_URL;
+var acceptanceUrl = require('../app');
 
 describe('TEST ENV GET /api/gameHistory', function () {
 
@@ -15,10 +15,10 @@ describe('TEST ENV GET /api/gameHistory', function () {
 
     var command =     {
       id : "1234",
-      gameId : "999",
-      comm: "CreateGame",
-      userName: "Gulli",
-      name: "TheFirstGame",
+      gameID : "999",
+      command: "createGame",
+      userName: "Oli",
+      nameOfGame: "The Game",
       timeStamp: "2014-12-02T11:29:29"
     };
 
@@ -39,10 +39,10 @@ describe('TEST ENV GET /api/gameHistory', function () {
             should(res.body).eql(
               [{
                 "id": "1234",
-                "gameId": "999",
+                "gameID": "999",
                 "event": "GameCreated",
-                "userName": "Gulli",
-                "name": "TheFirstGame",
+                "userName": "Oli",
+                "nameOfGame": "The Game",
                 "timeStamp": "2014-12-02T11:29:29"
               }]);
             done();
@@ -52,10 +52,44 @@ describe('TEST ENV GET /api/gameHistory', function () {
 
 
    it('Should execute fluid API test', function (done) {
-     /*
-     given(user("YourUser").createsGame("TheFirstGame"))
-     .expect("GameCreated").withName("TheFirstGame").isOk(done);
-      */
+
+     function given(cmdName){
+       console.log('givenfunction');
+       var cmd={
+         name:cmdName,
+         destination:undefined
+       };
+       var expectations = [];
+       var givenApi = {
+         sendTo: function(dest){
+           cmd.destination = dest;
+           return givenApi;
+         },
+         expect: function(eventName){
+           expectations.push(eventName);
+           return givenApi;
+         },
+         and: givenApi.expect,
+         when: function(done){
+           command;
+           done()
+         }
+       }
+       return givenApi;
+     }
+     function user(userName){
+       //console.log('user');
+       console.log(userName);
+       var cmd={
+         name:userName,
+         destination:undefined
+       };
+
+     }
+     //console.log(userName);
+     //given(user("Oli").createsGame("The Game"))
+     //.expect("GameCreated").withName("The Game").isOk(done);
+
      done();
    });
 

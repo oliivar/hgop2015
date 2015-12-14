@@ -10,7 +10,6 @@ module.exports = function(eventStore, commandHandler){
 
         try{
           events = commandHandler(eventStream).executeCommand(cmd);
-          console.log("hallo", cmd, events);
         } catch(e){
           defer.reject(e);
         }
