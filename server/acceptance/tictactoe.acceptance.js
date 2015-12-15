@@ -51,46 +51,47 @@ describe('TEST ENV GET /api/gameHistory', function () {
   });
 
 
-   it('Should execute fluid API test', function (done) {
+  it('Should execute fluid API test', function (done) {
+ /*
+    function given(cmdName){
+      //console.log('givenfunction');
+      var cmd={
+        name:cmdName,
+        destination:undefined
+      };
+      var expectations = [];
+      var givenApi = {
+        sendTo: function(dest){
+          cmd.destination = dest;
+          return givenApi;
+        },
+        expect: function(eventName){
+          expectations.push(eventName);
+          return givenApi;
+        },
+        and: givenApi.expect,
+        when: function(done){
+          command;
+          done()
+          console.log(givenApi);
+        }
+      }
 
-     function given(cmdName){
-       console.log('givenfunction');
-       var cmd={
-         name:cmdName,
-         destination:undefined
-       };
-       var expectations = [];
-       var givenApi = {
-         sendTo: function(dest){
-           cmd.destination = dest;
-           return givenApi;
-         },
-         expect: function(eventName){
-           expectations.push(eventName);
-           return givenApi;
-         },
-         and: givenApi.expect,
-         when: function(done){
-           command;
-           done()
-         }
-       }
-       return givenApi;
-     }
-     function user(userName){
-       //console.log('user');
-       console.log(userName);
-       var cmd={
-         name:userName,
-         destination:undefined
-       };
+      return givenApi;
+    }
+    function user(userName){
+      //console.log('user');
+      console.log(userName);
+      var cmd={
+        name:userName,
+        destination:undefined
+      };
 
-     }
-     //console.log(userName);
-     //given(user("Oli").createsGame("The Game"))
-     //.expect("GameCreated").withName("The Game").isOk(done);
-
-     done();
-   });
+    }
+    //console.log(userName);
+    given(user("Siggi").createsGame("The Game")).expect("GameCreated").withName("The Game").isOk(done);
+*/
+    done();
+  });
 
 });
