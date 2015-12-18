@@ -10,7 +10,7 @@
 	       sem heldur utan um vélarnar og keyrir upp stýrikerfi í þeim.
 
 ######Grunt: 
-         Er svokallað task runner sem gerir þér kleyft að minnka þína vinnu               
+          Er svokallað task runner sem gerir þér kleyft að minnka þína vinnu               
          eins og t.d live reload sem er í grunt einmitt gerir. 
 
 ######npm: 
