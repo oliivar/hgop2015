@@ -44,7 +44,7 @@
 	grunt mochaTest:acceptance
 
 
-	Var aðeins búinn með um hálfan dag 7 þegar ég varð að játa mig sigraðan
+	Var aðeins búinn með dag 7 þegar ég varð að játa mig sigraðan
 	tók mig því miður of langan tíma að gera hvert verkefni. Var bara ekki 
 	nægilega vel að mér í þessu fræðum en held að ég hafi samt lært margt og 	 
 	gagnlegt í þessu námskeiði.
