@@ -7,18 +7,18 @@ describe('create game command', function(){
     given= [];
     when={
       id:"1234",
-      gameID: "999",
       command:"createGame",
       userName : "Oli",
       nameOfGame: "The Game",
+      gameID: "999",
       timeStamp: "2015.12.02T11:29:44"
     };
     then=[{
       id:"1234",
-      gameID: "999",
       event:"GameCreated",
       userName: "Oli",
       nameOfGame: "999",
+      gameID: "999",
       timeStamp: "2015.12.02T11:29:44"
     }];
 
